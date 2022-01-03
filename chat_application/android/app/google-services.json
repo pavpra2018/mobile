@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "681331263828",
+    "firebase_url": "https://mnc-astromnc-all.firebaseio.com",
+    "project_id": "mnc-astromnc-all",
+    "storage_bucket": "mnc-astromnc-all.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:681331263828:android:742a63b68ff29bda2020c1",
+        "android_client_info": {
+          "package_name": "com.example.chat_application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "681331263828-t04hk8kpr33rk2hqv0249ee3u85ad9ng.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaICRaSmH4PtdOBsghS3EYgu3pP2KNJBA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "681331263828-t04hk8kpr33rk2hqv0249ee3u85ad9ng.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Squat and Walk",
+    "time": "This is to inform all is good.",
+    "thumbnail": "images/video1.jpg",
+    "videoUrl": "images/song_video.mp4"
+  },
+  {
+    "title": "Plie Squat and Heel Raises,",
+    "time": "55 seconds",
+    "thumbnail": "images/video2.jpg",
+    "videoUrl": "images/general_video.mp4"
+  },
+  {
+    "title": "Squat Kickback",
+    "time": "60 seconds",
+    "thumbnail": "images/video3.jpg",
+    "videoUrl": "images/common_video.mp4"
+  },
+  {
+    "title": "Squat with Side Leg Lift",
+    "time": "120 seconds",
+    "thumbnail": "images/video4.jpg",
+    "videoUrl": "images/common_video.mp4"
+  },
+  {
+    "title": "Squat with Side Leg Lift",
+    "time": "120 seconds",
+    "thumbnail": "images/video4.jpg",
+    "videoUrl": "images/common_video.mp4"
+  },
+  {
+    "title": "Squat with Side Leg Lift",
+    "time": "120 seconds",
+    "thumbnail": "images/video4.jpg",
+    "videoUrl": "images/common_video.mp4"
+  }
+]
