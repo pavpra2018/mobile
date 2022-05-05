@@ -179,7 +179,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                               if (membID.isEmpty ||
                                   membID.trim().length != 14) {
                                 setState(() {
-                                  errorMessage = "Something Went Wrong";
+                                  errorMessage = "Enter valid member ID";
                                   _isValidMember = true;
                                   return;
                                 });
@@ -198,7 +198,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
 
                                 if (memberSnap == null) {
                                   setState(() {
-                                    errorMessage = "Something Went Wrong";
+                                    errorMessage = "Enter valid member ID";
                                     showSpinner = false;
                                     _isValidMember = true;
                                     return;

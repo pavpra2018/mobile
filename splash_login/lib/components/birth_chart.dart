@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:splash_login/model/member.dart';
+import '../gene/colors.dart' as custcolor;
 
 const int nextPoshor = 55;
 const int nextPosVer = 20;
 
-class ChartPainter extends CustomPainter {
+class BirthChart extends CustomPainter {
   final Member memData;
-  const ChartPainter({required this.memData});
+  const BirthChart({required this.memData});
 
   TextSpan defaultTextSpan(String text) => TextSpan(
         text: text,
         style: const TextStyle(
           color: Colors.black45,
-          fontSize: 16,
+          fontSize: 13,
         ),
       );
 
@@ -32,27 +33,27 @@ class ChartPainter extends CustomPainter {
       if (text == 'Su') {
         hsgColor = const Color(0xff030303);
       } else if (text == 'Mo') {
-        hsgColor = const Color(0xff030303);
+        hsgColor = const Color(0xff050505);
       } else if (text == 'Ma') {
-        hsgColor = const Color(0xff030303);
+        hsgColor = const Color(0xff080808);
       } else if (text == 'Me') {
-        hsgColor = const Color(0xff030303);
+        hsgColor = const Color(0xff0A0A0A);
       } else if (text == 'Ju') {
-        hsgColor = const Color(0xff030303);
+        hsgColor = const Color(0xff0D0D0D);
       } else if (text == 'Ve') {
-        hsgColor = const Color(0xff030303);
+        hsgColor = const Color(0xff121212);
       } else if (text == 'Sa') {
-        hsgColor = const Color(0xff030303);
+        hsgColor = const Color(0xff141414);
       } else if (text == 'Ra') {
         hsgColor = const Color(0xff030303);
       } else if (text == 'Ke') {
-        hsgColor = const Color(0xff030303);
+        hsgColor = const Color(0xff171717);
       } else if (text == 'Ur') {
-        hsgColor = const Color(0xff030303);
+        hsgColor = const Color(0xff1C1C1C);
       } else if (text == 'Ne') {
-        hsgColor = Colors.yellow;
+        hsgColor = const Color(0xff212121);
       } else if (text == 'Pl') {
-        hsgColor = Colors.blueGrey;
+        hsgColor = const Color(0xff242424);
       }
     }
     return hsgColor;
@@ -155,7 +156,7 @@ class ChartPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..color = Colors.orange.shade100
+      ..color = custcolor.AppColor.primaryColor.withOpacity(0.3)
       ..strokeWidth = 2
       ..style = PaintingStyle.stroke;
     // print(size.width * 1 / 12);
@@ -218,7 +219,7 @@ class ChartPainter extends CustomPainter {
     final List<Offset> offsetPost = [
       Offset(size.width * 6 / 12 - 5, (size.height * 3 / 8) + 8),
       Offset(size.width * 3 / 12 - 5, (size.height * 1 / 8) + 18),
-      Offset(size.width * 1.8 / 12, (size.height * 2 / 8) - 8),
+      Offset(size.width * 2 / 12, (size.height * 2 / 8) - 8),
       Offset(size.width * 4.9 / 12, (size.height * 3.8 / 8)),
       Offset(size.width * 1.9 / 12, (size.height * 5.6 / 8)),
       Offset(size.width * 3 / 12 - 5, (size.height * 6 / 8) + 10),
@@ -248,248 +249,167 @@ class ChartPainter extends CustomPainter {
       textAlign: TextAlign.center,
       textDirection: TextDirection.ltr,
     );
-    int iniPos = 0;
+    List<double> widthList;
+    List<double> heightList;
     List<String> planList;
     //**********************-1
-
     planList = strPalnArr[0].split(',');
-
-    for (var i = 0; i < planList.length; i++) {
-      var pln = planList[i];
-      painter.text = colorTextSpan(pln, getHsgColor(pln.trim()));
-      Offset position =
-          Offset((size.width * 5 / 12), (size.height * 1.1 / 8) + iniPos);
-      painter.layout();
-      painter.paint(canvas, position);
-      iniPos += nextPosVer;
-    }
-
-    //painter.text = colorTextSpan(strPalnArr[0], Colors.orangeAccent);
-    //Offset position1 = Offset(size.width * 4 / 12, (size.height * 2 / 8) + 10);
-    // painter.layout();
-    // painter.paint(canvas, position1);
-//**********************-2
-    //painter.text = colorTextSpan(strPalnArr[1], Colors.indigoAccent);
-    //Offset position2 = Offset(size.width * 2 / 12, (size.height * 1 / 8) + 5);
-    //painter.layout();
-    //painter.paint(canvas, position);
-    iniPos = 0;
-    planList = strPalnArr[1].split(','); //['Su', 'Ma', 'Bu'];
-    print(planList);
-    for (var i = 0; i < (planList.length - 2); i++) {
-      var pln = planList[i];
-      painter.text = colorTextSpan(pln, getHsgColor(pln.trim()));
-      Offset position =
-          Offset((size.width * 1.4 / 12) + iniPos, (size.height * 0.3 / 8));
-      painter.layout();
-      painter.paint(canvas, position);
-      iniPos += nextPoshor;
-    }
-    iniPos = 0;
-    for (var i = 2; i < (planList.length - 1); i++) {
-      var pln = planList[i];
-      painter.text = colorTextSpan(pln, getHsgColor(pln.trim()));
-      Offset position =
-          Offset((size.width * 1.8 / 12) + iniPos, (size.height * 0.8 / 8));
-      painter.layout();
-      painter.paint(canvas, position);
-      iniPos += nextPoshor;
-    }
-    iniPos = 0;
-    for (var i = 3; i < planList.length; i++) {
-      var pln = planList[i];
-      painter.text = colorTextSpan(pln, getHsgColor(pln.trim()));
-      Offset position =
-          Offset((size.width * 1.8 / 12) + iniPos, (size.height * 1.2 / 8));
-      painter.layout();
-      painter.paint(canvas, position);
-      iniPos += nextPoshor;
-    }
-//**********************-3
-    // painter.text = colorTextSpan(strPalnArr[2], Colors.black);
-    // Offset position3 =
-    //     Offset(size.width * 1.1 / 12, (size.height * 2 / 8) + 10);
-    // painter.layout();
-    // painter.paint(canvas, position3);
-    iniPos = 10;
+    planList.insert(0, 'As ${lon2dmsz(memData.lagnaDegree)}');
+    paintFirstPattern(planList, painter, size, canvas, 5.0, 1.1);
+    //**********************-2
+    planList = strPalnArr[1].split(',');
+    widthList = [2, 1.4, 2, 2];
+    heightList = [0.3, 0.3, 0.7, 1.1];
+    paintSecondPattern(planList, painter, size, canvas, widthList, heightList);
+    //**********************-3
     planList = strPalnArr[2].split(',');
-    for (var pln in planList) {
-      painter.text = colorTextSpan(pln, getHsgColor(pln.trim()));
-      Offset position =
-          Offset(size.width * 0.4 / 12, (size.height * 1 / 8) + iniPos);
-      painter.layout();
-      painter.paint(canvas, position);
-      iniPos += nextPosVer;
-    }
-//**********************-4
-    // painter.text = colorTextSpan(strPalnArr[3], Colors.deepPurple);
-    // Offset position4 =
-    //     Offset(size.width * 1.6 / 12, (size.height * 3.5 / 8) + 10);
-    // painter.layout();
-    // painter.paint(canvas, position4);
-    iniPos = 0;
+    widthList = [0.3, 0.3, 0.3];
+    heightList = [2.1, 1.6, 1.3];
+    paintThirdPattern(planList, painter, size, canvas, widthList, heightList);
+    //**********************-4
     planList = strPalnArr[3].split(',');
-    for (var i = 0; i < 1; i++) {
-      var pln = planList[i];
-      painter.text = colorTextSpan(pln, getHsgColor(pln.trim()));
-      Offset position = Offset(
-          (size.width * 1.9 / 12) + iniPos, (size.height * 2.6 / 8) + 10);
-      painter.layout();
-      painter.paint(canvas, position);
-      iniPos += nextPoshor;
-    }
-    iniPos = 0;
-    for (var i = 1; i < 3; i++) {
-      var pln = planList[i];
-      painter.text = colorTextSpan(pln, getHsgColor(pln.trim()));
-      Offset position = Offset(
-          (size.width * 1.5 / 12) + iniPos, (size.height * 3.1 / 8) + 10);
-      painter.layout();
-      painter.paint(canvas, position);
-      iniPos += nextPoshor;
-    }
-
-    iniPos = 0;
-    for (var i = 3; i < planList.length; i++) {
-      var pln = planList[i];
-      painter.text = colorTextSpan(pln, getHsgColor(pln.trim()));
-      Offset position = Offset(
-          (size.width * 1.5 / 12) + iniPos, (size.height * 3.6 / 8) + 10);
-      painter.layout();
-      painter.paint(canvas, position);
-      iniPos += nextPoshor;
-    }
-
-//**********************-5
-    // painter.text = colorTextSpan(strPalnArr[4], Colors.cyan);
-    // Offset position5 =
-    //     Offset(size.width * 1.1 / 12, (size.height * 5 / 8) + 10);
-    // painter.layout();
-    // painter.paint(canvas, position5);
-
-    iniPos = 10;
+    paintFirstPattern(planList, painter, size, canvas, 2.3, 3);
+    //**********************-5
     planList = strPalnArr[4].split(',');
-    for (var pln in planList) {
-      painter.text = colorTextSpan(pln, getHsgColor(pln.trim()));
-      Offset position =
-          Offset(size.width * 0.4 / 12, (size.height * 4.5 / 8) + iniPos);
-      painter.layout();
-      painter.paint(canvas, position);
-      iniPos += nextPosVer;
-    }
-//**********************-6
-    // painter.text = colorTextSpan(strPalnArr[5], Colors.redAccent);
-    // Offset position6 =
-    //     Offset(size.width * 2.0 / 12, (size.height * 6 / 8) + 20);
-    // painter.layout();
-    // painter.paint(canvas, position6);
-
-    iniPos = 0;
+    widthList = [0.3, 0.3, 0.3];
+    heightList = [6.0, 5.5, 5.2];
+    paintThirdPattern(planList, painter, size, canvas, widthList, heightList);
+    //**********************-6
     planList = strPalnArr[5].split(',');
-    for (var pln in planList) {
-      painter.text = colorTextSpan(pln, getHsgColor(pln.trim()));
-      Offset position =
-          Offset((size.width * 1.3 / 12) + iniPos, (size.height * 7.3 / 8));
-      painter.layout();
-      painter.paint(canvas, position);
-      iniPos += nextPoshor;
-    }
+    widthList = [2, 1.4, 2, 2];
+    heightList = [7.4, 7.4, 7.0, 6.6];
+    paintSecondPattern(planList, painter, size, canvas, widthList, heightList);
     //**********************-7
-    // painter.text = colorTextSpan(strPalnArr[6], Colors.green);
-    // Offset position7 = Offset(size.width * 4 / 12, (size.height * 5 / 8) + 10);
-    // painter.layout();
-    // painter.paint(canvas, position7);
-    iniPos = 0;
     planList = strPalnArr[6].split(',');
-    for (var pln in planList) {
-      painter.text = colorTextSpan(pln, getHsgColor(pln.trim()));
-      Offset position =
-          Offset((size.width * 4 / 12) + iniPos, (size.height * 5.7 / 8));
-      painter.layout();
-      painter.paint(canvas, position);
-      iniPos += nextPoshor;
-    }
+    paintFirstPattern(planList, painter, size, canvas, 5.0, 5.1);
     //**********************-8
-    // painter.text = colorTextSpan(strPalnArr[7], Colors.pinkAccent);
-    // Offset position8 =
-    //     Offset(size.width * 7.0 / 12, (size.height * 6 / 8) + 20);
-    // painter.layout();
-    // painter.paint(canvas, position8);
-    iniPos = 0;
     planList = strPalnArr[7].split(',');
-    for (var pln in planList) {
-      painter.text = colorTextSpan(pln, getHsgColor(pln.trim()));
-      Offset position =
-          Offset((size.width * 6.5 / 12) + iniPos, (size.height * 7.3 / 8));
-      painter.layout();
-      painter.paint(canvas, position);
-      iniPos += nextPoshor;
-    }
-
+    widthList = [7.8, 7.2, 7.8, 7.8];
+    heightList = [7.4, 7.4, 7.0, 6.6];
+    paintSecondPattern(planList, painter, size, canvas, widthList, heightList);
     //**********************-9
-    // painter.text = colorTextSpan(strPalnArr[8], Colors.blueGrey);
-    // Offset position9 = Offset(size.width * 9 / 12, (size.height * 5 / 8) + 10);
-    // painter.layout();
-    // painter.paint(canvas, position9);
-    iniPos = 10;
     planList = strPalnArr[8].split(',');
-    for (var pln in planList) {
-      painter.text = colorTextSpan(pln, getHsgColor(pln.trim()));
-      Offset position =
-          Offset((size.width * 10.8 / 12), (size.height * 4.5 / 8) + iniPos);
-      painter.layout();
-      painter.paint(canvas, position);
-      iniPos += nextPosVer;
-    }
-//**********************-10
-
-    // painter.text = colorTextSpan(strPalnArr[9], Colors.teal);
-    // Offset position10 =
-    //     Offset(size.width * 7.1 / 12, (size.height * 3.5 / 8) + 10);
-    // painter.layout();
-    // painter.paint(canvas, position10);
-
-    iniPos = 10;
+    widthList = [10, 10, 10];
+    heightList = [6.0, 5.5, 5.2];
+    paintThirdPattern(planList, painter, size, canvas, widthList, heightList);
+    //**********************-10
     planList = strPalnArr[9].split(',');
-    for (var pln in planList) {
+    paintFirstPattern(planList, painter, size, canvas, 8.0, 3.0);
+    //**********************-11
+    planList = strPalnArr[10].split(',');
+    widthList = [9.9, 9.9, 9.9];
+    heightList = [2.1, 1.6, 1.3];
+    paintThirdPattern(planList, painter, size, canvas, widthList, heightList);
+    //**********************-12
+    planList = strPalnArr[11].split(',');
+    widthList = [8, 7.6, 8, 8];
+    heightList = [0.3, 0.3, 0.7, 1.1];
+    paintSecondPattern(planList, painter, size, canvas, widthList, heightList);
+  }
+
+  paintFirstPattern(List<String> planList, TextPainter painter, Size size,
+      Canvas canvas, double width, double height) {
+    int iniPos = 0;
+    String pln = "";
+    for (var i = 0; i < planList.length; i++) {
+      pln = planList[i];
       painter.text = colorTextSpan(pln, getHsgColor(pln.trim()));
       Offset position = Offset(
-          (size.width * 6.5 / 12) + iniPos, (size.height * 3.3 / 8) + 10);
-      painter.layout();
-      painter.paint(canvas, position);
-      iniPos += nextPoshor;
-    }
-//**********************-11
-    // painter.text = colorTextSpan(strPalnArr[10], Colors.brown);
-    // Offset position11 = Offset(size.width * 9 / 12, (size.height * 2 / 8) + 10);
-    // painter.layout();
-    // painter.paint(canvas, position11);
-    iniPos = 10;
-    planList = strPalnArr[10].split(',');
-    for (var pln in planList) {
-      painter.text = colorTextSpan(pln, getHsgColor(pln.trim()));
-      Offset position =
-          Offset((size.width * 10.8 / 12), (size.height * 0.7 / 8) + iniPos);
+          (size.width * width / 12), (size.height * height / 8) + iniPos);
       painter.layout();
       painter.paint(canvas, position);
       iniPos += nextPosVer;
     }
-//**********************-12
-    // painter.text = colorTextSpan(strPalnArr[11], Colors.cyanAccent);
-    // Offset position112 =
-    //     Offset(size.width * 7.1 / 12, (size.height * 1 / 8) + 5);
-    // painter.layout();
-    // painter.paint(canvas, position112);
+  }
 
-    iniPos = 0;
-    planList = strPalnArr[11].split(','); //['Ve', 'Ne', 'Pl', 'Su'];
-    for (var pln in planList) {
+  paintSecondPattern(List<String> planList, TextPainter painter, Size size,
+      Canvas canvas, List<double> width, List<double> height) {
+    int iniPos = 0;
+    String pln = "";
+    if (planList.length == 1) {
+      pln = planList[0];
       painter.text = colorTextSpan(pln, getHsgColor(pln.trim()));
-      Offset position =
-          Offset((size.width * 6.7 / 12) + iniPos, (size.height * 0.3 / 8));
+      Offset position = Offset(
+          (size.width * width[0] / 12) + iniPos, (size.height * height[0] / 8));
       painter.layout();
       painter.paint(canvas, position);
       iniPos += nextPoshor;
+    } else {
+      for (var i = 0; i < planList.length; i++) {
+        if (i == 2) {
+          break;
+        }
+        pln = planList[i];
+        painter.text = colorTextSpan(pln, getHsgColor(pln.trim()));
+        Offset position = Offset((size.width * width[1] / 12) + iniPos,
+            (size.height * height[1] / 8));
+        painter.layout();
+        painter.paint(canvas, position);
+        iniPos += nextPoshor + (pln.length > 8 ? 10 : 0);
+      }
+      iniPos = 0;
+      for (var i = 2; i < planList.length; i++) {
+        if (i == 3) {
+          break;
+        }
+        pln = planList[i];
+        painter.text = colorTextSpan(pln, getHsgColor(pln.trim()));
+        Offset position = Offset((size.width * width[2] / 12) + iniPos,
+            (size.height * height[2] / 8));
+        painter.layout();
+        painter.paint(canvas, position);
+        iniPos += nextPoshor;
+      }
+      iniPos = 0;
+      for (var i = 3; i < planList.length; i++) {
+        pln = planList[i];
+        painter.text = colorTextSpan(pln, getHsgColor(pln.trim()));
+        Offset position = Offset((size.width * width[3] / 12),
+            (size.height * height[3] / 8) + iniPos);
+        painter.layout();
+        painter.paint(canvas, position);
+        iniPos += nextPosVer;
+      }
+    }
+  }
+
+  paintThirdPattern(planList, painter, size, canvas, List<double> width,
+      List<double> height) {
+    int iniPos = 0;
+    String pln = "";
+    if (planList.length <= 2) {
+      for (var i = 0; i < planList.length; i++) {
+        if (i == 0) {
+          iniPos = 0;
+          pln = planList[i];
+          painter.text = colorTextSpan(pln, getHsgColor(pln.trim()));
+          Offset position = Offset(size.width * width[0] / 12,
+              (size.height * height[0] / 8) + iniPos);
+          painter.layout();
+          painter.paint(canvas, position);
+          iniPos += nextPosVer;
+        } else if (i == 1) {
+          iniPos = 0;
+          pln = planList[i];
+          painter.text = colorTextSpan(pln, getHsgColor(pln.trim()));
+          Offset position = Offset(size.width * width[1] / 12,
+              (size.height * height[1] / 8) + iniPos);
+          painter.layout();
+          painter.paint(canvas, position);
+          iniPos += nextPosVer;
+        }
+      }
+    } else {
+      iniPos = 0;
+      for (var i = 0; i < planList.length; i++) {
+        pln = planList[i];
+        painter.text = colorTextSpan(pln, getHsgColor(pln.trim()));
+        Offset position = Offset(
+            size.width * width[1] / 12, (size.height * height[2] / 8) + iniPos);
+        painter.layout();
+        painter.paint(canvas, position);
+        iniPos += nextPosVer;
+      }
     }
   }
 
@@ -499,7 +419,7 @@ class ChartPainter extends CustomPainter {
     var d = x1.floor();
     var ss0 = ((x1 - d) * 3600).round();
     var m = (ss0 / 60).floor();
-    var s = (ss0 % 60) % 60;
+    //var s = (ss0 % 60) % 60;
     d = d % 30;
     //var str = d.toString() + " " + m.toString() + "'" + s.toString() + "\" ";
     var str = d.toString() + ":" + m.toString();

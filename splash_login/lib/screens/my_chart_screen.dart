@@ -1,48 +1,48 @@
 import 'package:flutter/material.dart';
-import 'package:splash_login/components/chart_painter.dart';
-import 'package:splash_login/components/planet_table.dart';
+import 'package:splash_login/components/birth_chart.dart';
 import 'package:splash_login/components/text_display.dart';
+import 'package:splash_login/components/list_content.dart';
 import 'package:splash_login/model/member.dart';
 import '../gene/colors.dart' as custcolor;
 
 class MyChartScreen extends StatelessWidget {
-  const MyChartScreen({Key? key}) : super(key: key);
+  final Member membData;
+  const MyChartScreen({Key? key, required this.membData}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    Member membData = getmemData();
-
-    return SingleChildScrollView(
-      child: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              custcolor.AppColor.gradientFirst.withOpacity(0.8),
-              custcolor.AppColor.gradientSecond
-            ],
-            begin: const FractionalOffset(0.0, 0.4),
-            end: Alignment.topRight,
-          ),
+    Member _membData = membData;
+    debugPrint(_membData.toString());
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            custcolor.AppColor.primaryColor.withOpacity(0.8),
+            custcolor.AppColor.gradientSecond
+          ],
+          begin: const FractionalOffset(0.0, 0.4),
+          end: Alignment.topRight,
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            TextDisplay(membData: membData),
-            Container(
-              padding: const EdgeInsets.only(top: 8.0),
-              color: Colors.white,
-              child: Center(
-                child: SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.width * 0.85,
-                  child: CustomPaint(
-                    painter: ChartPainter(memData: membData),
-                  ),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          TextDisplay(membData: _membData),
+          Container(
+            padding: const EdgeInsets.only(top: 8.0),
+            color: custcolor.AppColor.pageTextWhite,
+            child: Center(
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.width * 0.75,
+                child: CustomPaint(
+                  painter: BirthChart(memData: _membData),
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+          ListContent()
+        ],
       ),
     );
   }

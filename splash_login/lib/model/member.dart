@@ -55,6 +55,7 @@ class Member {
   final int uraHsg;
   final int nepHsg;
   final int pluHsg;
+  String? memID;
   String? memName;
   String? memBcity;
   int? nakshtraID;
@@ -166,11 +167,12 @@ class Member {
         pluRetro = member["pluRetro"],
         pluHsg = member["pluHsg"],
         memName = member["memName"],
+        memID = member["memID"],
         memBcity = member["memBcity"],
         nakshtraID = member["nakshtraID"],
         nakGraha = member["nakGraha"],
-        memStartDate = member["memStartDate"],
-        memEndDate = member["memEndDate"];
+        memStartDate = member["memStartDate"].toDate(),
+        memEndDate = member["memEndDate"].toDate();
   //memStartDate = member["memStartDate"].toDate(),
   //memEndDate = member["memEndDate"].toDate();
 }

@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "613525561899",
+    "firebase_url": "https://local-astro-mnc.firebaseio.com",
+    "project_id": "local-astro-mnc",
+    "storage_bucket": "local-astro-mnc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:613525561899:android:a419d9972cadc23028006e",
+        "android_client_info": {
+          "package_name": "com.example.astromnc360"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "613525561899-lfgn6eu28iv3ksb9rudpi5lm5bduu37b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDePogBzZUSZNi3Ng2Fv7UDwh3S7kWVM4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "613525561899-lfgn6eu28iv3ksb9rudpi5lm5bduu37b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:613525561899:android:27555581af5bba0a28006e",
+        "android_client_info": {
+          "package_name": "com.example.splash_login"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "613525561899-lfgn6eu28iv3ksb9rudpi5lm5bduu37b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDePogBzZUSZNi3Ng2Fv7UDwh3S7kWVM4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "613525561899-lfgn6eu28iv3ksb9rudpi5lm5bduu37b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

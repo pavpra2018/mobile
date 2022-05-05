@@ -46,7 +46,7 @@ class TextDisplay extends StatelessWidget {
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                custcolor.AppColor.gradientFirst.withOpacity(0.8),
+                custcolor.AppColor.primaryColor.withOpacity(0.8),
                 custcolor.AppColor.gradientSecond
               ],
               begin: const FractionalOffset(0.0, 0.4),
@@ -84,7 +84,7 @@ class TextDisplay extends StatelessWidget {
           ),
         ),
         Container(
-          color: Colors.white,
+          color: custcolor.AppColor.pageTextWhite,
           padding: const EdgeInsets.only(
             top: 10,
             left: 30,
@@ -114,7 +114,9 @@ class TextDisplay extends StatelessWidget {
                           padding: const EdgeInsets.only(top: 3),
                           child: RichText(
                             text: TextSpan(
-                              text: 'Membership End : ',
+                              text: membData.memID == '*****'
+                                  ? 'Location Date : '
+                                  : 'Membership End : ',
                               style: TextStyle(
                                 color: Colors.grey.withOpacity(1.0),
                                 fontSize: 16,

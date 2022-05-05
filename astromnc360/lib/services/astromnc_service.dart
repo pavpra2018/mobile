@@ -1,9 +1,11 @@
 import 'package:astromnc360/model/member.dart';
 import 'package:astromnc360/services/location.dart';
 import 'package:astromnc360/services/networking.dart';
+import 'package:flutter/cupertino.dart';
 
 // const horoURL = "http://localhost:5002/local-astro-mnc/us-central1/horoscope";
 const horoURL = "http://10.0.2.2:5002/local-astro-mnc/us-central1/horoscope";
+const membURL = "http://10.0.2.2:5002/local-astro-mnc/us-central1/getMembers";
 
 class AstromncService {
   Future<dynamic> getcurrentHoro() async {
@@ -21,6 +23,20 @@ class AstromncService {
       'minutes': locDtTm.minute,
       'second': locDtTm.second,
       'offset': (locDtTm.timeZoneOffset).inHours
+    };
+
+    NetworkHelper networkHelper = NetworkHelper(horoURL, data);
+
+    var member = await networkHelper.getData();
+    Member memberData = Member.fromJson(member);
+    debugPrint(memberData.toString());
+    return memberData;
+  }
+
+  Future<dynamic> getMemberData(String memID) async {
+    var data = {
+      'serType': 'memonly',
+      'serString': memID,
     };
 
     NetworkHelper networkHelper = NetworkHelper(horoURL, data);

@@ -142,7 +142,7 @@ class PlanetTable extends StatelessWidget {
     var d = x1.floor();
     var ss0 = ((x1 - d) * 3600).round();
     var m = (ss0 / 60).floor();
-    var s = (ss0 % 60) % 60;
+    //var s = (ss0 % 60) % 60;
     d = d % 30;
     //var str = d.toString() + " " + m.toString() + "'" + s.toString() + "\" ";
     var str = d.toString() + ":" + m.toString();
